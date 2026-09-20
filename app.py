@@ -9,11 +9,13 @@ import pandas as pd
 
 def get_connection():
     return mysql.connector.connect(
-        host="127.0.0.1",
-        port=3307,
-        user="root",
-        password="",
-        database="Sales Analytics & Financial Tracking System"
+        host=st.secrets["DB_HOST"],
+        port=st.secrets["DB_PORT"],
+        user=st.secrets["DB_USER"],
+        password=st.secrets["DB_PASSWORD"],
+        database=st.secrets["DB_NAME"],
+        ssl_disabled=False,
+        ssl_verify_cert=False
     )
 
 
